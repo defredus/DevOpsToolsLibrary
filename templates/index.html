@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Shelf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-mark">[D]</span>
+            DEVOPS SHELF
+        </a>
+
+        <p class="topbar-note">CURATED TOOL LIBRARY · v0.1</p>
+    </header>
+
+    <main class="page">
+        <section class="intro">
+            <p class="label">/ DEVOPS KNOWLEDGE ARCHIVE</p>
+            <h1>Choose a<br><span>department.</span></h1>
+            <p class="lead">
+                A growing visual map of tools used to build,
+                deploy and operate modern infrastructure.
+            </p>
+        </section>
+
+        <section class="terminal-line">
+            <span class="live-dot"></span>
+            <span>6 SHOWCASES AVAILABLE</span>
+            <span class="terminal-command">SELECT_CATEGORY --EXPLORE</span>
+        </section>
+
+        <section class="showcase-grid">
+            {% for item in showcases %}
+            <article class="showcase">
+                <div class="showcase-head">
+                    <span class="showcase-id">DEPT.{{ item.id }}</span>
+                    <span class="open-icon">↗</span>
+                </div>
+
+                <div class="showcase-main">
+                    <p class="showcase-code">{{ item.code }}</p>
+                    <h2>{{ item.title }}</h2>
+                    <p class="showcase-description">{{ item.description }}</p>
+                </div>
+
+                <div class="tool-list">
+                    {% for tool in item.tools %}
+                    <span>{{ tool }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="showcase-footer">
+                    <span>OPEN SHOWCASE</span>
+                    <span>{{ item.tools|length }} TOOLS</span>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <span>DEVOPS SHELF</span>
+        <span>FLASK / PYTHON</span>
+    </footer>
+</body>
+</html>
