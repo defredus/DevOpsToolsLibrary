@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+    --bg: #101211;
+    --surface: #171a18;
+    --surface-light: #1d211f;
+    --line: #343b36;
+    --text: #e5e9e4;
+    --muted: #89928c;
+    --lime: #c7ff48;
+    --dark-lime: #22300c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        var(--bg);
+    background-size: 38px 38px;
+    font-family: "Manrope", sans-serif;
+}
+
+.topbar,
+.page,
+footer {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.topbar {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    color: var(--text);
+    text-decoration: none;
+    font: 500 15px "DM Mono", monospace;
+    letter-spacing: 0.08em;
+}
+
+.brand-mark {
+    color: var(--lime);
+    margin-right: 8px;
+}
+
+.topbar-note,
+.label,
+.terminal-line,
+.showcase-id,
+.showcase-code,
+.showcase-footer,
+footer {
+    font: 11px "DM Mono", monospace;
+    letter-spacing: 0.08em;
+}
+
+.topbar-note {
+    color: var(--muted);
+}
+
+.intro {
+    padding: 92px 0 60px;
+}
+
+.label {
+    color: var(--lime);
+    margin: 0 0 19px;
+}
+
+h1 {
+    max-width: 700px;
+    margin: 0;
+    font-size: clamp(56px, 8vw, 106px);
+    line-height: 0.88;
+    letter-spacing: -0.08em;
+}
+
+h1 span {
+    color: var(--lime);
+}
+
+.lead {
+    max-width: 490px;
+    margin: 33px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.terminal-line {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: var(--muted);
+    padding: 15px 18px;
+    border: 1px solid var(--line);
+    background: rgba(23, 26, 24, 0.75);
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--lime);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--lime);
+}
+
+.terminal-command {
+    margin-left: auto;
+    color: #65705f;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 18px 0 58px;
+}
+
+.showcase {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.showcase:hover {
+    background: var(--surface-light);
+    border-color: var(--lime);
+    transform: translateY(-5px);
+}
+
+.showcase-head,
+.showcase-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.showcase-id {
+    color: var(--muted);
+}
+
+.open-icon {
+    color: var(--lime);
+    font: 22px "DM Mono", monospace;
+}
+
+.showcase-main {
+    margin: auto 0 25px;
+}
+
+.showcase-code {
+    margin: 0 0 12px;
+    color: var(--lime);
+}
+
+.showcase h2 {
+    margin: 0;
+    font-size: clamp(31px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.07em;
+}
+
+.showcase-description {
+    max-width: 430px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 24px;
+}
+
+.tool-list span {
+    padding: 7px 9px;
+    color: #c2cac3;
+    border: 1px solid #404841;
+    background: #111411;
+    font: 11px "DM Mono", monospace;
+}
+
+.showcase-footer {
+    padding-top: 16px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+}
+
+.showcase-footer span:first-child {
+    color: var(--lime);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 0 38px;
+    color: #657068;
+    border-top: 1px solid var(--line);
+}
+
+@media (max-width: 700px) {
+    .topbar,
+    .page,
+    footer {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .topbar-note,
+    .terminal-command {
+        display: none;
+    }
+
+    .intro {
+        padding: 66px 0 45px;
+    }
+
+    .showcase-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .showcase {
+        min-height: 310px;
+    }
+}
